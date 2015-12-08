@@ -1,0 +1,63 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.indaco.cs146movieapp.ProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/ic_launcher"
+            android:layout_gravity="left|top"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/name"
+            android:layout_gravity="left|center_vertical"
+            android:textSize="15dp"
+            android:paddingTop="20dp"
+            android:hint="Enter Name"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/email"
+            android:textSize="15dp"
+            android:paddingTop="10dp"
+            android:hint="Enter Email"
+            android:layout_below="@+id/name"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_toEndOf="@+id/imageView"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preferences"
+            android:id="@+id/button"
+            android:textSize="15dp"
+            android:paddingTop="10dp"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:layout_gravity="center"
+            android:layout_below="@+id/email"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_alignRight="@+id/email"
+            android:layout_alignEnd="@+id/email"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

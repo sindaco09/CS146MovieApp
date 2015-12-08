@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.indaco.cs146movieapp.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_edit_movies"
+        android:title="@string/view_movies"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_edit_friends"
+        android:title="@string/view_users"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/log_out"
+        app:showAsAction="never"/>
+</menu>
