@@ -8,8 +8,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -30,12 +31,21 @@ public class EditMoviesActivity extends ListActivity {
     protected List<ParseObject> mList;
     protected ParseRelation<ParseObject> mMoviesRelation;
     protected ParseUser mCurrentUser;
-    protected SearchView mSearchView;
+    protected Button mRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_movies);
+
+        mRefresh = (Button) findViewById(R.id.updateButton);
+        mRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {//
+                Toast.makeText(EditMoviesActivity.this, "REFRESH!", Toast.LENGTH_SHORT).show();
+                refreshMovies();
+            }
+        });
 
         //allow multiple items to be selected
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -47,6 +57,17 @@ public class EditMoviesActivity extends ListActivity {
             //doMySearch(query);
         }
     }
+    public void refreshMovies(){
+        MovieDemo movieDemo = new MovieDemo();
+        movieDemo.populateList();
+        for(int i=0;i<movieDemo.size();i++) {
+            ParseObject movie = new ParseObject("Movies");
+            movie.put("Title", movieDemo.getTitle(i));
+            movie.put("Description", movieDemo.getSummary(movieDemo.getTitle(i)));
+            movie.saveInBackground();
+        }
+    }
+
     @Override
     public boolean onSearchRequested(){
         return true;

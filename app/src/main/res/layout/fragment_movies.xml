@@ -3,12 +3,15 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.indaco.cs146movieapp.MoviesFragment">
-
-    <ListView
-        android:id="@android:id/list"
+    <ExpandableListView
+        android:id="@+id/expandableList"
+        android:text=""
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Add friends to begin">
-    </ListView>
+        android:divider="@android:color/holo_blue_light"
+        android:dividerHeight="2dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        />
+
 
 </FrameLayout>

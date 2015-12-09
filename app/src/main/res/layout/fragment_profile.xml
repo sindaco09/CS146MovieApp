@@ -15,30 +15,26 @@
             android:layout_gravity="left|top"
             />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/name"
             android:layout_gravity="left|center_vertical"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:paddingTop="20dp"
-            android:hint="Enter Name"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/imageView"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
             android:ems="10"
             android:id="@+id/email"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:paddingTop="10dp"
-            android:hint="Enter Email"
             android:layout_below="@+id/name"
             android:layout_toRightOf="@+id/imageView"
             android:layout_toEndOf="@+id/imageView"

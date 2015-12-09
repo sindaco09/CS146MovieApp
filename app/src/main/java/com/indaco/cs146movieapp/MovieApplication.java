@@ -1,7 +1,6 @@
 package com.indaco.cs146movieapp;
 
 import android.app.Application;
-
 import com.parse.Parse;
 
 /**

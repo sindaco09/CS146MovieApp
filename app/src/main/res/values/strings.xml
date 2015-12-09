@@ -35,4 +35,7 @@
     <string name="search_hint">Search for movie</string>
     <string name="view_users">View Users</string>
     <string name="empty_friends_label"/>
+    <string name="refresh_list">Refresh List</string>
+    <string name="add_friends_to_begin">Add friends to begin</string>
+    <string name="hello_world">hello world</string>
 </resources>
