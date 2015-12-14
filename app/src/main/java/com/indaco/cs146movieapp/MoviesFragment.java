@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -63,9 +62,9 @@ public class MoviesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
+    //creates the view of all the movies related to the user
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,10 +85,11 @@ public class MoviesFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+        //get current user logged in and movies related to the user
         mCurrentUser = ParseUser.getCurrentUser();
         mMoviesRelation = mCurrentUser.getRelation(ParseConstants.KEY_MOVIES_RELATION);
 
-
+        //query the movies in alphabetical order
         ParseQuery<ParseUser> query = mMoviesRelation.getQuery();
         query.addAscendingOrder(ParseConstants.KEY_MOVIE_TITLE);
         query.findInBackground(new FindCallback<ParseUser>() {
@@ -106,6 +106,8 @@ public class MoviesFragment extends Fragment {
                         movieSummaries.add(i, title.getString("Description"));
                         i++;
                     }
+
+                    //user custom adapter to load movies
                     MovieAdapter movieAdapter = new MovieAdapter(getActivity(),movieTitles,movieSummaries);
                     mExpandableListView.setAdapter(movieAdapter);
 
@@ -120,11 +122,9 @@ public class MoviesFragment extends Fragment {
                 }
             }
         });
-
-
-
     }
 
+    //mListener is used to listen when fragment is attached again (user navigates between tabs)
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

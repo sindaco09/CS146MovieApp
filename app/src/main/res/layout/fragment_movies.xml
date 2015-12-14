@@ -12,6 +12,4 @@
         android:dividerHeight="2dp"
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
         />
-
-
 </FrameLayout>

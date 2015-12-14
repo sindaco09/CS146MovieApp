@@ -15,6 +15,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     }
 
 
+    //Adapter used to return the correct fragment, uses Tab position
     @Override
     public android.support.v4.app.Fragment getItem(int position){
         switch(position) {
@@ -28,12 +29,14 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return null;
     }
 
+    //how many tabs
     @Override
     public int getCount() {
         // Show 3 total pages.
         return 3;
     }
 
+    //simple tab title setter
     @Override
     public CharSequence getPageTitle(int position){
         Locale locale = Locale.getDefault();

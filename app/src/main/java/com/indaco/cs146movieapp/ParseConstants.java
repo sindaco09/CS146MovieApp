@@ -2,6 +2,11 @@ package com.indaco.cs146movieapp;
 
 /**
  * Created by stefan on 11/29/2015.
+ *
+ * This class is used to make final @string variables
+ * Parse.com is case sensitive and could have problems if all
+ * strings are hardcoded, more room for error, eliminate that threat
+ * with static final strings
  */
 public final class ParseConstants {
     // Class names

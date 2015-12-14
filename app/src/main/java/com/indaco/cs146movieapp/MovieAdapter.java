@@ -42,11 +42,13 @@ public class MovieAdapter extends BaseExpandableListAdapter{
         mActivity = act;
     }
 
+    //group = movie titles (clickable)
     @Override
     public int getGroupCount() {
         return mGRP_Titles.size();
     }
 
+    //children = movie descriptions (1 summary per title)
     @Override
     public int getChildrenCount(int groupPosition) {
         return 1;
@@ -91,6 +93,7 @@ public class MovieAdapter extends BaseExpandableListAdapter{
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
         if (convertView == null) {
+            //inflate group space with the title of the movie (stays same as before opening)
             LayoutInflater inflater =
                     (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.parent_layout, parent, false);
@@ -100,11 +103,13 @@ public class MovieAdapter extends BaseExpandableListAdapter{
         return convertView;
     }
 
+    //used to populate with summary
     @Override
     public View getChildView(int groupPosition,
                              int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
         if (convertView == null) {
+            //inflate the layout space (new expanded space) with movie summary
             LayoutInflater inflater =
                     (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_layout, parent, false);
@@ -114,32 +119,7 @@ public class MovieAdapter extends BaseExpandableListAdapter{
         return convertView;
     }
 
-
-    /*@Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-
-        if(convertView == null){
-            convertView = mLayoutInflater.inflate(R.layout.explist_group_title,null);
-        }
-        ((CheckedTextView) convertView).setText(mGRP_Titles.get(groupPosition));
-        ((CheckedTextView) convertView).setChecked(isExpanded);
-        return convertView;
-    }
-
-    @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        //Here it seems we do... everything
-        //mCHLD_Summaries = (ArrayList<String>) mGRP_Titles.get(groupPosition);
-        TextView text = null;
-        if(convertView==null){
-            convertView = mLayoutInflater.inflate(R.layout.explist_child_summary,null);
-        }
-        text = (TextView) convertView.findViewById(R.id.title);
-        text.setText(mCHLD_Summaries.get(groupPosition));
-
-        return convertView;
-    }*/
-
+    //nothing happens when pressing the summary text
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;

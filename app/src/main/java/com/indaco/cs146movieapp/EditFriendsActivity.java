@@ -20,17 +20,21 @@ import java.util.List;
 
 public class EditFriendsActivity extends ListActivity {
 
+    //Tag string used for debugging
     public static final String TAG = EditFriendsActivity.class.getSimpleName();
 
+    /* Member variables:
+     * mList = list of all users
+     * mRelation = relation between users
+     * mCurrentUser = getCurrentUser logged in
+     */
     protected List<ParseUser> mList;
     protected ParseRelation<ParseUser> mFriendsRelation;
     protected ParseUser mCurrentUser;
 
-    /* onCreate Method controls content view, possibly actionbar setup
-     * and progressBar visibility
+    /* onCreate(): called to do initial creation of the fragment.
      *
-     * onResume controls flow whenever cycle of activity
-     *
+     * onResume(): makes the fragment begin interacting with the user (based on its containing activity being resumed).
      */
 
     @Override
@@ -78,12 +82,16 @@ public class EditFriendsActivity extends ListActivity {
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(EditFriendsActivity.this,
                             android.R.layout.simple_list_item_checked,
                             usernames);
+
+                    //display the list from adapter
                     setListAdapter(adapter);
 
+                    //function to show which users are friends and which aren't
                     addFriendCheckmarks();
 
                 } else {
-                    //OH NO!!! basic AlertDialog + Logging is in this loop
+                    //List did not load correctly,
+                    // basic debugging messages in both log and on screen of device
                     Log.e(TAG, e.getMessage());
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditFriendsActivity.this);
                     builder.setMessage(e.getMessage())
@@ -124,12 +132,8 @@ public class EditFriendsActivity extends ListActivity {
         });
     }
 
-    /*
-    private void setupActionBar() {
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-    }*/
 
-
+    //Dropdown menu in top right (3 vertical inline dots) if item is selected...
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -145,6 +149,7 @@ public class EditFriendsActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //if user is selected from the list, add/remove user from friends list
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
@@ -175,19 +180,5 @@ public class EditFriendsActivity extends ListActivity {
 
     }
 
-    /*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        switch(item.getItemId()){
-        case android.R.id.home:
-            NavUtils.navigateUpFromSameTask(this);
-            return;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-     */
 }
 

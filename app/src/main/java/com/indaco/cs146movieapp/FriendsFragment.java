@@ -68,9 +68,11 @@ public class FriendsFragment extends ListFragment {
     public void onResume() {
         super.onResume();
 
+        // getCurrentUser and load the users related to him/her
         mCurrentUser = ParseUser.getCurrentUser();
         mFriendsRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
 
+        //query returning all related users (friends) in ascending order
         ParseQuery<ParseUser> query = mFriendsRelation.getQuery();
         query.addAscendingOrder(ParseConstants.KEY_USERNAME);
         query.findInBackground(new FindCallback<ParseUser>() {
@@ -85,11 +87,13 @@ public class FriendsFragment extends ListFragment {
                         usernames[i] = user.getUsername();
                         i++;
                     }
+
+                    //ArrayAdapter translates raw strings to a visible UI for useer
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(getListView().getContext(),
                             android.R.layout.simple_list_item_1,
                             usernames);
                     setListAdapter(adapter);
-                }else{//couldn't retrieve list
+                }else{//couldn't retrieve list, log for Logcat and display error on screen
                     Log.e(TAG, e.getMessage());
                     AlertDialog.Builder builder = new AlertDialog.Builder(getListView().getContext());
                     builder.setMessage(e.getMessage())
@@ -102,6 +106,8 @@ public class FriendsFragment extends ListFragment {
         });
 
     }
+
+    //interface required by each fragment, implemented in MainActivity
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

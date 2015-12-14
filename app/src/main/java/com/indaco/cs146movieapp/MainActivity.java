@@ -109,11 +109,11 @@ FriendsFragment.OnFragmentInteractionListener{
 
     }
 
-    /**
+    /*
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment{
-        /**
+        /*
          * The fragment argument representing the section number for this
          * fragment.
          */
@@ -122,7 +122,7 @@ FriendsFragment.OnFragmentInteractionListener{
         public PlaceholderFragment() {
         }
 
-        /**
+        /*
          * Returns a new instance of this fragment for the given section
          * number.
          */

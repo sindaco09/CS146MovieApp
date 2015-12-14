@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 /**
  * Created by stefan on 12/8/2015.
+ *
+ * Basic List of all the movies and the summaries to upload into Parse db
+ * This class is more for Development purposes. once movies are successfully
+ * loaded into Parse.com, this class could be removed
  */
 public class MovieDemo {
     protected ArrayList<String> mTitles= new ArrayList<>();

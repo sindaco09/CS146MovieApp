@@ -77,13 +77,13 @@ public class SignUpActivity extends AppCompatActivity {
                         public void done(ParseException e) {
                             mProgress.setVisibility(View.INVISIBLE);
 
-                            if(e==null){//SUCCESS!
+                            if(e==null){//Success!
 
                                 Intent intent = new Intent(SignUpActivity.this,MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
-                            }else{//NOOO!!!
+                            }else{//Something went wrong, log and alert user
                                 AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
                                 builder.setMessage(e.getMessage())
                                         .setTitle(R.string.signup_error_title)
